@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "coffee  app.coffee"
   },
   "dependencies": {
     "express": "~4.9.0",
@@ -19,6 +19,7 @@
     "bookshelf": "*",
     "bluebird": "*",
     "lodash": "*",
-    "moment": "*"
+    "moment": "*",
+    "graceful-logger": "*"
   }
 }
