@@ -12,10 +12,16 @@ moment = require 'moment'
 
 # GET home page. 
 router.get '/', (req, res) ->
-  res.render('index');
+  res.redirect '/login'
 
 router.get '/login', (req, res) ->
   res.render 'Login/login.ejs'
+
+router.post '/login', (req, res) ->
+  res.redirect '/index'
+
+router.get '/index', (req, res) ->
+  res.render 'index'
 
 router.get '/exam_score_manage', (req, res) ->
   new Exam()
