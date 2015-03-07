@@ -1,0 +1,63 @@
+<form id="pagerForm" method="post" action="demo_page1.html">
+  <input type="hidden" name="status" value="${param.status}">
+  <input type="hidden" name="keywords" value="${param.keywords}" />
+  <input type="hidden" name="pageNum" value="1" />
+  <input type="hidden" name="numPerPage" value="${model.numPerPage}" />
+  <input type="hidden" name="orderField" value="${param.orderField}" />
+</form>
+
+
+<div class="pageHeader">
+  <form onsubmit="return navTabSearch(this);" action="demo_page1.html" method="post">
+  <div class="searchBar">
+    <table class="searchContent">
+      <tr>
+        <td>
+          学生姓名：<input type="text" name="keyword" />
+        </td>
+        <td>
+          学生编号：<input type="text" name="keyword" />
+        </td>
+        <td>
+          总分：<input type="number" name="keyword" />
+        </td>
+      </tr>
+    </table>
+    <div class="subBar">
+      <ul>
+        <li><div class="buttonActive"><div class="buttonContent"><button type="submit">检索</button></div></div></li>
+      </ul>
+    </div>
+  </div>
+  </form>
+</div>
+<div class="pageContent">
+  <div class="panelBar">
+    <ul class="toolBar">
+      <li><a class="edit" href="exam_admit_detail" target="dialog" mask="true" width="800" height="600"><span>查看详细信息</span></a></li>      
+    </ul>
+  </div>
+  <table class="table" width="100%" layoutH="115">
+    <thead>
+      <tr>
+        <th></th>
+        <th width="10%">编号</th>
+        <th width="15%">姓名</th>
+        <th width="10%">性别</th>
+        <th width="20%">中考准考证号</th>
+        <th width="20%">中考成绩</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr target="sid_user" rel="<%= students.id %>">
+        <td><%= students.id %></td>
+        <td><%= students.code1 %></td>
+        <td><%= students.name %></td>
+        <td><%= students.sex %></td>
+        <td><%= students.code2 %></td>
+        <td><%= students.score %></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>

@@ -23,6 +23,43 @@ router.post '/login', (req, res) ->
 router.get '/index', (req, res) ->
   res.render 'index'
 
+router.get '/exam_admit_manage', (req, res) ->
+  examstudent = 
+    id: 1
+    code1: 123456
+    name: '目前无学生'
+    sex: '男'
+    code2: 123456
+    score: 0
+  res.render 'ExamManage/exam_admit_manage', {students: examstudent}
+
+router.get '/exam_admit_detail', (req, res) ->
+  examstudent = 
+    id: 1
+    code1: 123456
+    name: '目前无学生'
+    sex: '男'
+    code2: 123456
+    address: null
+    phone: null
+    birthday: null
+    nation: null
+    graduateschool: null
+    graduateperson: null
+    score1: 0
+    score2: 0
+    score3: 0
+    score4: 0
+    score5: 0
+    score6: 0
+    score7: 0
+    extrascore: 0
+    totalscore1: 0
+    totalscore2: 0
+    first: null
+    second: null
+  res.render 'ExamManage/exam_admit_detail', {student: examstudent}
+
 router.get '/exam_score_manage', (req, res) ->
   new Exam()
   .query (qb) ->
