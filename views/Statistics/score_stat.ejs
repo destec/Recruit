@@ -1,0 +1,29 @@
+<form id="pagerForm" method="post" action="demo_page1.html">
+  <input type="hidden" name="status" value="${param.status}">
+  <input type="hidden" name="keywords" value="${param.keywords}" />
+  <input type="hidden" name="pageNum" value="1" />
+  <input type="hidden" name="numPerPage" value="${model.numPerPage}" />
+  <input type="hidden" name="orderField" value="${param.orderField}" />
+</form>
+
+<div class="pageContent">
+  <table class="table" width="100%" layoutH="115">
+    <thead>
+      <tr>
+        <th width="200">编号</th>
+        <th>分数段</th>
+        <th width="300">人数</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(var i=0; i<stat.length; i++) { %>
+        <tr target="sid_specialities" rel="<%= stat[i].id %>">
+          <td><%= stat[i].id %></td>
+          <td><%= stat[i].score %></td>
+          <td><%= stat[i].count %></td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+  </div>
+</div>

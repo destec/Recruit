@@ -80,7 +80,47 @@ router.get '/exam_score_modify', (req, res) ->
   .then (model) ->
     res.render 'ExamManage/exam_score_modify', {score: model.toJSON()}
 
-router.get '/exam_admit', (req, res) ->
+router.get '/department_stat', (req, res) ->
+  departments = [
+    {id: 1, name: "人文系", count: 395},
+    {id: 2, name: "信息系", count: 192},
+    {id: 3, name: "外语系", count: 103},
+    {id: 4, name: "机电系", count: 695},
+    {id: 5, name: "经贸系", count: 362},
+    {id: 6, name: "艺术系", count: 302},
+    {id: 7, name: "财会系", count: 307}
+  ]
+  res.render 'Statistics/department_stat', {departments: departments}
+
+router.get '/score_stat', (req, res) ->
+  stat = [
+    {id: 1, score: "<150", count: 80},
+    {id: 2, score: ">150 <200", count: 44},
+    {id: 3, score: ">200 <250", count: 90},
+    {id: 4, score: ">250 <300", count: 181},
+    {id: 5, score: ">300 <350", count: 237},
+    {id: 6, score: ">350 <400", count: 360},
+    {id: 7, score: ">400 <450", count: 371},
+    {id: 8, score: ">450 <500", count: 392},
+    {id: 9, score: ">500 <550", count: 421},
+    {id: 10, score: ">550 <600", count: 114},
+    {id: 11, score: ">600 <650", count: 10}
+  ]
+  res.render 'Statistics/score_stat', {stat: stat}
+
+router.get '/accommodation_stat', (req, res) ->
+  stat = [
+    {id: 1, situation: "在校住宿", count: 1825},
+    {id: 2, situation: "不在校住宿", count: 531}
+  ]
+  res.render 'Statistics/accommodation_stat', {stat: stat}
+
+router.get '/sex_stat', (req, res) ->
+  stat = [
+    {id: 1, sex: "男", count: 1231},
+    {id: 2, sex: "女", count: 1125}
+  ]
+  res.render 'Statistics/sex_stat', {stat: stat}
 
 router.get '/invoice_manage', (req, res) ->
   new Invoice()
